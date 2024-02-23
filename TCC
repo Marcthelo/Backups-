@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RSP - Produtos </title>
+</head>
+<body>
+    <header> 
+        <div class="cabecalho">
+
+         </div>
+    </header>
+    <main>
+        <div class="produtos">
+
+        </div>
+    </main>
+    <div class="informacoes">
+        <span>
+            <h1> Nome da Categoria </h1> <!-- h1 = Para texto chave de categorias / títulos *-->
+            <ul>
+                <li> Primeiro Item </li>
+                <li> Segundo Item </li>
+                <li> Terceiro Item </li>
+            </ul>
+            <h1> Primeito Filtro </h1> <!-- h1 = Para texto chave de categorias / títulos *-->
+            <ul>
+                <li> Primeiro Item </li>
+                <li> Segundo IRtem </li>
+                <li> Terceiro Item </li>
+            </ul>
+            <h1> Segundo Filtro </h1> <!-- h1 = Para texto chave de categorias / títulos *-->
+            <ul>
+                <li> Primeiro Item </li>
+                <li> Segundo IRtem </li>
+                <li> Terceiro Item </li>
+            </ul>
+            <h1> Terceiro Filtro </h1> <!-- h1 = Para texto chave de categorias / títulos *-->
+            <ul>
+                <li> Primeiro Item </li>
+                <li> Segundo IRtem </li>
+                <li> Terceiro Item </li>
+            </ul>
+        </span>
+        </span>
+        </span>
+    </div>
+    <footer> 
+         <div class="rodape">
+
+         </div>
+    </footer>
+</body>
+</html>
