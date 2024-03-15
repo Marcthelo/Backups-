@@ -1,11 +1,12 @@
 CREATE SCHEMA `rsp_banco` DEFAULT CHARACTER SET utf8;
 
-CREATE TABLE `rsp_banco`.`produtos_induzido`(
+CREATE TABLE `rsp_banco`.`produtos`(
   `codigo` INT NOT NULL AUTO_INCREMENT,
-  `descricao` VARCHAR(255) NOT NULL,
-  `fabricante` VARCHAR(255) NOT NULL,
-/*Informações Técnicas*/`info_tec` VARCHAR(255) NOT NULL,
-  `preco` VARCHAR(255) NOT NULL,
+  `automovel` enum('Carro','Trator','Caminhão','Moto','Motoneta') NOT NULL,
+  `tipo` varchar(255) not null,
+  `class` varchar(255) not null,
+  `volts` float(5,2) not null,
+  `fab` varchar(255) not null,
   PRIMARY KEY(`codigo`))
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8;
