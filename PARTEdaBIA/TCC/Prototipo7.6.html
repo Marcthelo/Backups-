@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="rsp2.ico" type="image/x-icon">
+    <title>RSP - Automovéis</title>
+    <!--LINKS INICIO-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <!--LINKS FIM-->
+    <!--STYLE INICIO-->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        width: 100%;
+      }
+      #zape{
+        height: 50px;
+        width: 50px;
+      }
+      /*Referente ao cabeçalho do site */
+      header {
+        display: flex;
+        flex-direction: row;
+        background-color: #b20000;
+        width: 100%;
+        height: 15vh;
+        justify-content: space-around;
+        gap: 3em;
+        align-items: center;
+        color: white;
+      }
+
+      #logo {
+        width: fit-content;
+        height: fit-content;
+        background-color: #b20000;
+        
+      }
+      #imgFT{
+        width: 250px;
+        height: 135px;
+      }
+
+      #menuBotao {
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      #menuImagem {
+        width: 3.3rem;
+        height: 3.3rem;
+      }
+
+      /* Específica o que acontece quando */
+      /* o mouse está sobre o elemento */
+      #menuBotao:hover {
+        opacity: 50%;
+      }
+
+      /* Específica o que acontece quando */
+      /* o elemento é clicado */
+      #menuBotao:active {
+        opacity: 100%;
+      }
+
+      .menuAtivo {
+        background-color: white;
+        border: 1px solid black;
+      }
+
+      .menuBotaoDesativo {
+        filter: invert(100%); /* Inverte a cor do elemento (preto pra branco) */
+      }
+
+      #menuDiv {
+        display: flex;
+        justify-content: start;
+      }
+
+      #departamentosDiv {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        width: 50vw;
+        height: 55vh;
+        border: 1px solid black;
+        background-color: white;
+        margin-top: 3.3rem;
+        color: black;
+      }
+
+      .departamentosDesativo {
+        visibility: hidden;
+      }
+
+      .departamentosDivInterior {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        padding-left: 1em;
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+      }
+
+      #departamentos1 {
+        width: 50%;
+        height: 100%;
+        border-right: 1px solid black;
+      }
+
+      #departamentos2 {
+        width: 50%;
+        height: 100%;
+      }
+
+      #titulo {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        font-size: 1.6em;
+      }
+
+      #entrarBotao {
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        font-size: 1.6em;
+        cursor: pointer;
+      }
+      #PedidoBotao{
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        font-size: 1.6em;
+        cursor: pointer;
+      }
+      #entrarBotao:hover {
+        color: rgb(191, 191, 191);
+      }
+
+      #entrarBotao:active {
+        color: white;
+      }
+
+      #barraPesquisaDiv {
+        width: 23.5%;
+        height: 2.8em;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+
+      .barraPesquisa {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 2em;
+        font-size: 1.4em;
+        padding-left: 1em;
+      }
+
+      #pesquisaIcone {
+        margin: 0;
+        position: absolute;
+        width: 2.1em;
+        height: 2.1em;
+        cursor: pointer;
+        margin-right: 1.5em;
+      }
+
+      #carrinhoIcone {/**/
+        width: 3.5em;
+        height: 3.5em;
+        cursor: pointer;
+      }
+
+      /* O corpo é nossa flex que ajusta os elementos do */
+      /* interior da página. */
+      /* Podemos já também alinhar os itens no centro */
+      /* Também colocamos uma altura mínima de 85vh, pra cobrir o resto da página */
+      /* Mas isso não restringe que ele ajuste seu tamanho para ficar maior se */
+      /* necessário, gap em 5em define um espaço entre cada elemento */
+      #corpo {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #b1b1b1;
+        padding: 5em 0;
+        gap: 5em;
+      }
+
+      /* Uma div para o carrosel e o que mostra a imagem atual */
+      /* Como carroselDiv é flex column fica fácil ficar vertical bonito */
+      /* Alinhamos no centro pra deixar o negocio da imagem atual no centro */
+      #carroselDiv {
+        display: flex;
+        flex-direction: column;
+        width: 88%;
+        height: 24em;
+        align-items: center;
+      }
+
+      /* Queremos que as imagems fiquem scrollando em horizontal */
+      /* Botamos flex row e dizemos pras imagens tomar toda largura do carrosel */
+      /* Com o overflow hidden, as imagens que vão pra fora da div do carrosel  */
+      /* não aparecem mais. Essa é a mágica do carrosel */
+
+      #carrosel {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 90%;
+        overflow: hidden;
+      }
+
+      .carroselImagem {
+        width: 100%;
+      }
+
+      #carroselPaginas {
+        width: fit-content;
+        height: 10%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+      }
+
+      .carroselPaginaIndicador {
+        width: 1em;
+        height: 80%;
+        border-radius: 1em;
+        background-color: rgba(128, 128, 128, 0.511);
+        cursor: pointer;
+        transition: ease-in-out 0.2s;
+      }
+
+      .carroselPaginaIndicadorAtivo {
+        background-color: white;
+      }
+
+      #veiculosDiv {
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        height: fit-content;
+        gap: 7em;
+      }
+
+      .veiculoCirculo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 13em;
+        width: 13em;
+        background-color: white;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      /* Aqui fiz o mesmo efeito que tinha no de antes */
+      /* Só com efeito de clique agora também e transição para suavizar */
+      .veiculoCirculo:hover {
+        background-color: rgba(255, 0, 0, 0.7);
+        box-shadow: 0 0 20px 2px black;
+        transition: ease-in-out 0.2s;
+      }
+
+      .veiculoCirculo:active {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+
+      .veiculoImagem {
+        width: 60%;
+        height: fit-content;
+      }
+
+      .veiculoDescricao {
+        font-size: 1.5em;
+      }
+
+      /* Rodapé igual de vocês, mas agora vamos usar justify-content */
+      /* Usamos justify content space around do flex para separar entre os elements mais fácil */
+      footer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 15vh;
+        background: #c60000;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.3em;
+        color: white;
+      }
+
+      #sobreDiv {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+      }
+
+      #sobreTitulo {
+        font-size: 3em;
+        margin-left: 1em;
+        align-self: flex-start;
+      }
+
+      #sobreTexto {
+        display: flex;
+        flex-direction: row;
+        height: 30vh;
+        width: 80%;
+        background-color: rgb(255, 118, 118);
+        border-top-right-radius: 2.5em;
+        border-bottom-right-radius: 1em;
+        justify-content: start;
+        align-self: flex-start;
+      }
+
+      .aboutBloco {
+        width: 80%;
+        height: 30vh;
+        position: absolute;
+        border-top-right-radius: 2.5em;
+        border-bottom-right-radius: 1em;
+        box-shadow: 5px 11px 20px black;
+      }
+
+      #sobreTextoSecundario {
+        position: absolute;
+        height: 28vh;
+        width: 79%;
+        background-color: rgb(255, 0, 0);
+      }
+
+      #sobreTextoTerciario {
+        width: 78%;
+        height: 26vh;
+        position: absolute;
+        background-color: white;
+        font-size: 1.5em;
+      }
+    </style>
+    <!--STYLE FIM-->
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <!-- Header em Flex Display (Elementos em Ordem e Blocos) -->
+      <div id="logo"><img src="rsp2.png" alt="Foto-Logo" id="imgFT" /></div>
+      <!-- Logo fit-content só seu conteúdo dentro -->
+      <div id="menuDiv">
+        <button
+          onclick="mostrarMenu()"
+          class="menuBotaoDesativo"
+          id="menuBotao"
+        >
+          <img id="menuImagem" src="menu.png" />
+        </button>
+        <div id="departamentosDiv" class="departamentosDesativo">
+          <div id="departamentos1" class="departamentosDivInterior">
+            <p>Carros</p>
+            <p>Tratores</p>
+            <p>Pneus</p>
+            <p>Jorge</p>
+          </div>
+          <div id="departamentos2" class="departamentosDivInterior"></div>
+        </div>
+      </div>
+      <!-- Script dá as classes necessárias pros elementos necessários -->
+      <!-- Basicamente desativando e ativando as classes que dão -->
+      <!-- O visual para o menu de departamentos aparecer visível -->
+      <!--toggle - alternar -->
+      <script>
+        function mostrarMenu() {
+          document.getElementById("menuDiv").classList.toggle("menuAtivo");
+          document
+            .getElementById("menuBotao")
+            .classList.toggle("menuBotaoDesativo");
+          document
+            .getElementById("departamentosDiv")
+            .classList.toggle("departamentosDesativo");
+        }
+      </script>
+
+      <h2 id="titulo">TODOS OS DEPARTAMENTOS</h2>
+      <!-- Título usa proporção de fonte (em) métrica importante, usem muito -->
+      <!-- Barra Simples: Bordas com radius, placeholder é o texto que aparece sempre -->
+      <!-- Icone de pesquisa, só baixar da internet um icone, colocar no src -->
+      <!-- Se for jpeg coloca mix-blend-mode: multiply que tira o fundo branco -->
+      <!-- Colocar o cursor: pointer para parecer "clicável" -->
+      <div id="barraPesquisaDiv">
+        <!-- Div da barra de pesquisa é flex -->
+        <!-- Usamos isso para botar o icone em posição absoluta -->
+        <!-- Fácil guiar o ícone pro final pra ficar em cima da barra só usando -->
+        <!-- justify-content: end na div -->
+        <input
+          type="text"
+          name="text"
+          class="barraPesquisa"
+          placeholder="Pesquisar"
+        />
+        <img id="pesquisaIcone" src="lupa.png" />
+      </div>
+      <h2 id="entrarBotao">ENTRAR</h2>
+      <h2 id="PedidoBotao">PEDIDO</h2>
+    </header>
+    <!-- Section ajuda entender o seção do interior do site -->
+    <!-- Funciona igual uma div -->
+    <!-- display flex para começarmos alinhar os elementos dentro -->
+    <!-- Colocamos flex-direction em column, queremos que a ordem dos elementos seja em vertical (Cima pra baixo) -->
+    <section id="corpo">
+      <div id="carroselDiv">
+        <div id="carrosel">
+          <img class="carroselImagem" src="carrosel_tudo.png" />
+          <img class="carroselImagem" src="carrosel_tudo.png" />
+          <img class="carroselImagem" src="carrosel_tudo.png" />
+        </div>
+        <div id="carroselPaginas"></div>
+      </div>
+      <!-- Podemos colocar mais uma div em flex para alinhar em flex-direciton row -->
+      <!-- Agora podemos colocar os veículos em horizontal fácilmente -->
+      <div id="veiculosDiv">
+        <div class="veiculoCirculo">
+          <img class="veiculoImagem" src="automoveis.png" />
+          <p class="veiculoDescricao">Automovéis</p>
+        </div>
+        <div class="veiculoCirculo">
+          <img class="veiculoImagem" src="caminhoes.png" />
+          <p class="veiculoDescricao">Caminhões</p>
+        </div>
+        <div class="veiculoCirculo">
+          <img class="veiculoImagem" src="tratores.png" />
+          <p class="veiculoDescricao">Tratores</p>
+        </div>
+        <div class="veiculoCirculo">
+          <img class="veiculoImagem" src="motocicleta.png" />
+          <p class="veiculoDescricao">Motocicleta</p>
+        </div>
+        <div class="veiculoCirculo">
+          <img class="veiculoImagem" src="motonetas.png" />
+          <p class="veiculoDescricao">Motonetas</p>
+        </div>
+      </div>
+
+      <h2 id="sobreTitulo">SOBRE NÓS</h2>
+      <div id="sobreTexto">
+        <div id="sobreTextoSecundario" class="aboutBloco"></div>
+        <div id="sobreTextoTerciario" class="aboutBloco"></div>
+      </div>
+    </section>
+    <footer id="footer">
+      <div class="blocoContato">
+        <a href="https://wa.me/45998135467"><img id="zape" src="WhatsAppImage.png" alt="zape" class="iconeContato" /></a>
+        <p>WHATSAPP</p>
+      </div> 
+      <div class="blocoContato">
+        <img class="iconeContato" />
+        <p class="textoContato">ENDEREÇO</p>
+      </div>
+      <div class="blocoContato">
+        <img class="iconeContato" />
+        <p class="textoContato">DIREITOS AUTORAIS &copy;</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  // Aqui defino variáveis úteis
+  // A div que contém os bloquinhos que indicam a página atual do carrosel
+  const carroselPaginas = document.getElementById("carroselPaginas");
+  // Crio um bloquinho que indica a página atual, estes bloquinhos vai serão divs
+  const paginaIndicador = document.createElement("div");
+  // Pego a div do carrosel em si
+  const carrosel = document.getElementById("carrosel");
+  // Pego as imagens que estão dentro da div do carrosel
+  const carroselImages = document.getElementsByClassName("carroselImagem");
+
+  // Criar indicadores da página atual ==
+  // Dou a classe para o bloquinho que indica a página (é uma classe de css normal lá em cima ^^)
+  paginaIndicador.classList.add("carroselPaginaIndicador");
+  // Crio clones do bloquinho que eu criei, igual a quantidade de imagens no carrosel (carroselImages.length)
+  // Adiciono eles como filhos do carroselPaginas, ou seja, estarão dentro da div dos bloquinhos carroselPaginas
+  // OBS: Quando você cria um elemento no javascript (createElement()) ele não aparece diretamente no html
+  // é necessário especificar de quem ele é filho (qual elemento ele estará dentro, 'elemento.appendChild(filho)')
+  for (let i = 0; i < carroselImages.length; i++) {
+    carroselPaginas.appendChild(paginaIndicador.cloneNode(true));
+  }
+  // Por fim pego todos os bloquinhos que eu criei numa variável lista só.
+  const paginaIndicadores = document.getElementsByClassName("carroselPaginaIndicador");
+  // Dou toggle no primeiro bloquinho (0) pois a primeira imagem que aparece é a primeira (0) também
+  paginaIndicadores[0].classList.toggle("carroselPaginaIndicadorAtivo");
+
+  // Fazer scrollagem automática
+  // Digo que a imagem que mostra atualmente é a primeira (0)
+  let currentImage = 0;
+  // Crio um loop que executa a cada intervalo de 4 segundos. (4000 porque está em milisegundos)
+  // () = > {} é um jeito fácil de criar uma função no javascript sem precisar de function, apenas ()
+  // você pode atribuir a uma váriavel, tipo myFunction = () => {//fazalgo...} ou só passar como parâmetro
+  // tipo como passamos em setInterval(), pois é a função que executa a cada intervalo de 4 segundos
+  setInterval(() => {
+    // Pega as dimensões do carrosel e sua posição de uma imagem no carrosel, tudo dentro dessa boundBox
+    // É importante que esta linha esteja dentro do intervalo pois a posição e dimensão muda toda hora
+    // Pego sempre da imagem 0 pois todas imagens tem a mesma largura e altura no nosso css, ent não faz diferença
+    const boundBox = carroselImages[0].getBoundingClientRect();
+    // Aumento a imagem atual em 1 (se antes era 0, a primeira, agora é a segunda, 2)
+    currentImage += 1;
+    // Se a imagem atual é igual ao tamanho da lista das imagens do carrosel, quer dizer que este contador 
+    // currentImage passou da quantidade de imagens que existem
+    if (currentImage === carroselImages.length) {
+      // Fazemos a imagem atual ser a primeira (0) denovo.
+      currentImage = 0;
+      // Fazemos o último bloquinho indicador levar toggle da classe que deixa ele ativo, pois sabemos
+      // que já que voltamos pro inicio, o último ativo era o último bloquinho
+      paginaIndicadores[paginaIndicadores.length - 1].classList.toggle("carroselPaginaIndicadorAtivo");
+      // Fazemos o bloquinho indicador da primeira imagem ter o css de ativo
+      paginaIndicadores[0].classList.toggle("carroselPaginaIndicadorAtivo");
+      // Fazemos o carrosel scrollar para o ínicio (posição 0 na esquerda), logo primeira imagem
+      // Behavior smooth deixa a animação fluída, em vez de ir direto sem efeito/transição
+      carrosel.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      // Aqui só fazemos o bloquinho anterior (currentImage - 1) perder o css de ativo que ele tem
+      paginaIndicadores[currentImage - 1].classList.toggle("carroselPaginaIndicadorAtivo");
+      // Aqui fazemos o bloquinho da imagem atual ganhar o css de ativo
+      paginaIndicadores[currentImage].classList.toggle("carroselPaginaIndicadorAtivo");
+      // Scrollamos o carrosel em eixo horizontal equivalente a largura da imagem, ou seja
+      // o suficiente para scrollar o suficiente até a imagem anterior sumir a nova estar no lugar
+      carrosel.scrollBy({ left: boundBox.width, behavior: "smooth" });
+      // Nota: Passa-se em scrollBy() (a função de scrollar) um objeto com os atributos da 'scrollação'
+      // Um objeto é um conjunto de chaves e valores dentro de chaves { }
+      // Objetos tem formatos diferentes, no caso do scrollBy ele tem vários, como left (scrollar horizontal)
+      // top (scrollar vertical), behavior (como vai ser o efeito do scroll), etc.
+      // Só passamos left e behavior porque é o que precisamos.
+    }
+  }, 4000); // Lembra, <-- milisegundos
+</script>
