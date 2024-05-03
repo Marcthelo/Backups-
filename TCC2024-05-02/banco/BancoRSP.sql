@@ -27,12 +27,12 @@ DROP TABLE IF EXISTS `adm`;
 CREATE TABLE `adm` (
   `idadm` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_usuario` enum('cliente','empresa','adm') NOT NULL,
-  `nome` varchar(45) NOT NULL,
+  `nome` varchar(255) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `endereco` varchar(45) NOT NULL,
-  `estado` varchar(45) NOT NULL,
+  `estado` varchar(2) NOT NULL,
   `cidade` varchar(45) NOT NULL,
   `nivel_acesso` int(3) NOT NULL,
   PRIMARY KEY (`idadm`)
@@ -97,7 +97,7 @@ CREATE TABLE `empresa` (
   `email` varchar(45) NOT NULL,
   `telefone` varchar(45) NOT NULL,
   `endereco` varchar(45) NOT NULL,
-  `estado` varchar(45) NOT NULL,
+  `estado` varchar(2) NOT NULL,
   `cidade` varchar(45) NOT NULL,
   PRIMARY KEY (`idempresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
