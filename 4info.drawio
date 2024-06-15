@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-15T02:13:40.970Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0" etag="gp_o312sPbP7CkuVHuUz" version="24.5.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-15T02:21:28.375Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0" etag="ti3RhOkX2jI1OezXw9Ai" version="24.5.4" type="github">
   <diagram name="Página-1" id="ng0IZWedt5B4W6SbE388">
     <mxGraphModel dx="1498" dy="1557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -71,7 +71,7 @@
             <mxPoint x="430" y="230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="j8T5LUoiK3F1KZbFksjJ-28" value="FUNCIONARIOS" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="j8T5LUoiK3F1KZbFksjJ-28" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;ADM/FUNCIONARIOS&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="350" y="340" width="100" height="50" as="geometry" />
         </mxCell>
         <mxCell id="j8T5LUoiK3F1KZbFksjJ-29" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="j8T5LUoiK3F1KZbFksjJ-28" target="j8T5LUoiK3F1KZbFksjJ-26" edge="1">
