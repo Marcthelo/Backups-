@@ -46,7 +46,11 @@ CREATE TABLE `adm` (
 
 LOCK TABLES `adm` WRITE;
 /*!40000 ALTER TABLE `adm` DISABLE KEYS */;
-INSERT INTO `adm` VALUES (1,'adm','celos','987654','324','celos@gmail.com','av.cascavel','SE','santo amaro',0,0),(2,'adm','celos','987654','324','celos@gmail.com','av.cascavel','SE','santo amaro',0,0),(3,'adm','Marcelo Silva Junior','3','5','marcelo@gmail.com','CASA','RS','campinas',0,0),(4,'adm','Marcelo Silva Junior','3','5','marcelo@gmail.com','CASA','RS','campinas',0,0);
+INSERT INTO `adm` VALUES 
+(1,'adm','celos','987654','324','celos@gmail.com','av.cascavel','SE','santo amaro',0,0),
+(2,'adm','celos','987654','324','celos@gmail.com','av.cascavel','SE','santo amaro',0,0),
+(3,'adm','Marcelo Silva Junior','3','5','marcelo@gmail.com','CASA','RS','campinas',0,0),
+(4,'adm','Marcelo Silva Junior','3','5','marcelo@gmail.com','CASA','RS','campinas',0,0);
 /*!40000 ALTER TABLE `adm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +132,9 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'cliente','bianca','1654861','123','binca@gmail.com','2024-04-29','55675436','casadokrl','PR','cascavel',0,0),(2,'cliente','ABN','3','56','ABN@YAHOO.COM','2000-02-10','19','AV.BRASIL','PB','FORTAELZA',0,0);
+INSERT INTO `cliente` VALUES 
+(1,'cliente','bianca','1654861','123','binca@gmail.com','2024-04-29','55675436','casadokrl','PR','cascavel',0,0),
+(2,'cliente','ABN','3','56','ABN@YAHOO.COM','2000-02-10','19','AV.BRASIL','PB','FORTAELZA',0,0);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +168,8 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
-INSERT INTO `empresa` VALUES (1,'empresa','casa Do bahiano','189456few','456','casa@bainhao.com','5431','casa','RN','pelourinho',0,0);
+INSERT INTO `empresa` VALUES 
+(1,'empresa','casa Do bahiano','189456few','456','casa@bainhao.com','5431','casa','RN','pelourinho',0,0);
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
