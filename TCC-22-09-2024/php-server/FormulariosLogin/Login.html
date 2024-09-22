@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../imgs/rsp2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/styleLogin.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="fieldset">
+        <form action="PHP/testeLogin.php" method="POST">
+            <legend> <h2> LOGIN </h2></legend>
+            <input type="text" name="nome" id="nome" placeholder="NOME"/>
+            <br><br>
+                 <input type="text" name="documento" id="documento" placeholder="CPF ou CNPJ">
+                 <br><br>
+            <input type="email" name="email" id="email" placeholder="EMAIL">
+            <br><br>
+                <input type="password" name="senha" id="senha" placeholder="Senha" required/>
+            <br><br>
+            <div id="botoes">
+                <button type="submit" name="submit" value="Enviar">Entrar</button>
+                <button type="button"><a href="../Paginas/home.php">Voltar</a></button>
+                </div>
+                <p>Não possui uma conta? <br>clique <a style="color: white;" href="../FormulariosLogin/Formulario.html">aqui</a> para criar uma</p>
+        </form>
+    </div>
+    <script async src="JS/scriptLogin.js"></script>
+</body>
+</html>
