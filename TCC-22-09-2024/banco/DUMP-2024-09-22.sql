@@ -173,7 +173,6 @@ CREATE TABLE `usuarios` (
   `documento` varchar(14) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `data_nascimento` date NOT NULL,
   `telefone` varchar(20) NOT NULL DEFAULT '+55',
   `cep` varchar(8) NOT NULL,
   `estado` varchar(2) NOT NULL,
