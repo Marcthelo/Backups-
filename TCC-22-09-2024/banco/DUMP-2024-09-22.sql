@@ -27,7 +27,7 @@ CREATE TABLE `administradores` (
   `tipo_usuario` enum('Administrador') NOT NULL,
   `nome` varchar(100) NOT NULL,
   `tipo_documento` enum('CPF') NOT NULL,
-  `documento` varchar(14) NOT NULL,
+  `documento` varchar(11) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `email` varchar(25) NOT NULL,
   `telefone` varchar(20) NOT NULL DEFAULT '+55',
