@@ -35,10 +35,15 @@ CREATE TABLE `administradores` (
   `estado` varchar(2) NOT NULL,
   `cidade` varchar(35) NOT NULL,
   `data_contratacao` timestamp NOT NULL DEFAULT current_timestamp(),
-  `estado_id` int(11) NOT NULL,
-  `cidade_id` int(11) NOT NULL,
+  `estado_id` int(11),
+  `cidade_id` int(11),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--ESSA TABELA QUE VAI A CHAVE ESTRANGEIRA 
+--UM EXEMPLO CHAVE ESTRANGEIRA
+--KEY `id_codigo` (`id_codigo`),
+--CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_codigo`) REFERENCES `pedido` (`codigo_id`)
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +66,7 @@ DROP TABLE IF EXISTS `cidade`;
 CREATE TABLE `cidade` (
   `id_cidade` int(11) NOT NULL AUTO_INCREMENT,
   `nomeCidade` varchar(35) NOT NULL,
+  PRIMARY KEY (`id_cidade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,6 +89,7 @@ DROP TABLE IF EXISTS `estado`;
 CREATE TABLE `estado` (
   `id_estado` int(11) NOT NULL AUTO_INCREMENT,
   `nomeEstado` varchar(25) NOT NULL,
+  PRIMARY KEY (`id_estado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,6 +115,8 @@ CREATE TABLE `pedido` (
   `dataProduto` date DEFAULT NULL,
   `preco` int(11) DEFAULT NULL,
   `quantidade` int(11) DEFAULT NULL,
+  `estado_id` int(11),
+  `cidade_id` int(11),
   PRIMARY KEY (`codigo_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -178,10 +187,14 @@ CREATE TABLE `usuarios` (
   `estado` varchar(2) NOT NULL,
   `cidade` varchar(35) NOT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
-  `estado_id` int(11) NOT NULL,
-  `cidade_id` int(11) NOT NULL,
+  `estado_id` int(11),
+  `cidade_id` int(11),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--ESSA TABELA QUE VAI A CHAVE ESTRANGEIRA 
+--UM EXEMPLO CHAVE ESTRANGEIRA
+--KEY `id_codigo` (`id_codigo`),
+--CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_codigo`) REFERENCES `pedido` (`codigo_id`)
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
