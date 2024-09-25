@@ -26,7 +26,7 @@ CREATE TABLE `administradores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_usuario` enum('Administrador') NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `tipo_documento` enum('CPF','CNPJ') NOT NULL,
+  `tipo_documento` enum('CPF') NOT NULL,
   `documento` varchar(14) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `email` varchar(25) NOT NULL,
@@ -35,6 +35,8 @@ CREATE TABLE `administradores` (
   `estado` varchar(2) NOT NULL,
   `cidade` varchar(35) NOT NULL,
   `data_contratacao` timestamp NOT NULL DEFAULT current_timestamp(),
+  `estado_id` int(11) NOT NULL,
+  `cidade_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
