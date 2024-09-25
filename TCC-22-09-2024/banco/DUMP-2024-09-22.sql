@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `cidade`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cidade` (
   `id_cidade` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeCidade` int(11) NOT NULL,
+  `nomeCidade` varchar(35) NOT NULL,
   PRIMARY KEY (`id_cidade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
