@@ -30,7 +30,7 @@ CREATE TABLE `administradores` (
   `documento` varchar(14) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `telefone` varchar(20) NOT NULL,
+  `telefone` varchar(20) NOT NULL DEFAULT '+55',
   `cep` varchar(8) NOT NULL,
   `estado` varchar(2) NOT NULL,
   `cidade` varchar(35) NOT NULL,
