@@ -178,6 +178,8 @@ CREATE TABLE `usuarios` (
   `estado` varchar(2) NOT NULL,
   `cidade` varchar(35) NOT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `estado_id` int(11) NOT NULL,
+  `cidade_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
