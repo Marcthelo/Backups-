@@ -169,7 +169,6 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_usuario` enum('FISICA','JURIDICA') NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `razao_social` varchar(100) NOT NULL,
   `tipo_documento` enum('CPF','CNPJ') NOT NULL,
   `documento` varchar(14) NOT NULL,
   `email` varchar(100) NOT NULL,
