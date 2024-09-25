@@ -138,6 +138,7 @@ CREATE TABLE `produtos` (
   `tipo_fabricante` varchar(200) DEFAULT NULL,
   `peca` varchar(250) DEFAULT NULL,
   `qtd_volts` int(11) DEFAULT NULL,
+  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_produto`),
   KEY `id_codigo` (`id_codigo`),
   CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_codigo`) REFERENCES `pedido` (`codigo_id`)
