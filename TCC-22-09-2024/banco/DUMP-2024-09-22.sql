@@ -112,11 +112,11 @@ DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE `pedido` (
   `codigo_id` int(11) NOT NULL AUTO_INCREMENT,
   `codigo` int(11) DEFAULT NULL,
-  `dataProduto` date DEFAULT NULL,
+  `dataProduto` timestamp NOT NULL DEFAULT current_timestamp(),
   `preco` int(11) DEFAULT NULL,
   `quantidade` int(11) DEFAULT NULL,
-  `estado_id` int(11),
-  `cidade_id` int(11),
+  `estado_id` int(11) NOT NULL,
+  `cidade_id` int(11) NOT NULL,
   PRIMARY KEY (`codigo_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
