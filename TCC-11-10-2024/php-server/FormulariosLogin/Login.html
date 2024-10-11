@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../imgs/rsp2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/styleLogin.css">
+    <title>Login</title>
+    <style>
+        label {
+    color: #f0f0f0;
+    text-decoration: bold;
+    margin-top: 0%;
+    border-radius: 30%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+    </style>
+</head>
+<body>
+    <div id="fieldset">
+        <form action="PHP/testeLogin.php" method="POST">
+            <legend> <h2> LOGIN </h2></legend>
+            <label for="Tdocumento">Tipo de Documento</label>
+            <select name="Tdocumento" id="Tdocumento">
+                <option value="">Selecione</option>
+                <option value="CPF">CPF</option>
+                <option value="CNPJ">CNPJ</option>
+            </select>
+            <br><br>
+                 <input type="text" maxlength="20" autocomplete="off" name="documento" id="documento" placeholder="Digite seu Documento">
+                 <br><br>
+                <input type="password" name="senha" id="senha" placeholder="Senha" required/>
+            <br><br>
+            <div id="botoes">
+                <button type="submit" name="submit" value="Enviar">Entrar</button>
+                <button type="button"><a href="../Paginas/home.php">Voltar</a></button>
+                </div>
+                <p>Não possui uma conta? <br>clique <a style="color: white;" href="../FormulariosLogin/Formulario.html">aqui</a> para criar uma</p>
+        </form>
+    </div>
+    <script async src="JS/scritLogin.js">    
+  $(document).ready(function() {
+    $('#documento').mask('000.000.000-00/0000-0000', {
+      reverse: true,
+      onKeyPress: function(cep, e, currentField, options) {
+        // Verifica o tamanho do valor digitado para identificar se é CPF ou CNPJ
+        if (cep.length === 14) {
+          // É um CNPJ
+          $(this).unmask().mask('00.000.000/0000-00');
+        } else if (cep.length === 11) {
+          // É um CPF
+          $(this).unmask().mask('000.000.000-00');
+        }
+      }
+    });
+
+    $('#loginForm').submit(function(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
+
+      // Obtém o valor do documento e remove a máscara
+      const documento = $('#documento').val().replace(/\D/g, '');
+
+      // Validação básica (adicione mais validações conforme necessário)
+      if (documento.length !== 11 && documento.length !== 14) {
+        alert('CPF ou CNPJ inválido.');
+        return false;
+      }
+
+      // Envia os dados para o servidor com o nome correto
+      if (documento.length === 11) {
+        $(this).append('<input type="hidden" name="tipo" value="cpf">');
+      } else {
+        $(this).append('<input type="hidden" name="tipo" value="cnpj">');
+      }
+
+      // Envia o formulário
+      this.submit();
+    });
+  });
+    </script>
+</body>
+</html>
